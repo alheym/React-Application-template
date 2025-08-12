@@ -28,17 +28,34 @@ module.exports = {
   module: {
     rules: [
       {
+        test: /\.css$/,
+        use: ['style-loader', 'css-loader'],
+      },
+      {
+        test: /\.(woff|woff2|eot|ttf|otf)$/i,
+        type: 'asset/resource',
+        generator: {
+          filename: 'fonts/[name][hash][ext]',
+        },
+      },
+      {
         test: /\.(ts|tsx)?$/,
         use: 'ts-loader',
         exclude: /node_modules/,
       },
       {
-        test: /\.svg?$/,
-        issuer: /\.[jt]sx?$/,
-        use: ['@svgr/webpack'],
+        test: /\.svg$/i,
+        use: [
+          {
+            loader: '@svgr/webpack',
+            options: {
+              dimensions: false,
+            },
+          },
+        ],
       },
       {
-        test: /\.(png|jpg|gif|svg)$/i,
+        test: /\.(png|jpg|gif|mp3)$/i,
         loader: 'file-loader',
         exclude: /node_modules/,
         options: {

@@ -3,8 +3,8 @@ import { createGlobalStyle } from 'styled-components'
 export const GlobalStyle = createGlobalStyle`
 
 :root {
-    --bg: #F4F5F9;
-    --text: #42567A;
+    --bg: rgb(244, 238, 228);
+    --text: #702833;
   }
 
 html,
@@ -19,12 +19,13 @@ html,
     box-sizing: border-box;
     color: var(--text);
     background-color: var(--bg);
-    font-family: 'Raleway', sans-serif;
+    font-family: 'Lena', sans-serif;
     font-size: 16px;
     font-weight: 500;
     font-style: normal;
     font-variant-numeric: lining-nums proportional-nums;
     line-height: 1.5rem;
+    padding: 4px;
   *,
   *::after,
   *::before {
