@@ -27,7 +27,7 @@ type ConfettiPiece = {
 const BacheloretteQuiz = () => {
   const [currentQuestion, setCurrentQuestion] = useState(0);
   const [showAnswer, setShowAnswer] = useState(false);
-  const [showIntro, setShowIntro] = useState(false);
+  const [showIntro, setShowIntro] = useState(true);
   const [answers, setAnswers] = useState<Record<number, boolean>>({});
   const [showResults, setShowResults] = useState(false);
 
