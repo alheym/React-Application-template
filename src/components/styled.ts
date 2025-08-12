@@ -257,5 +257,19 @@ export const ResultWrapper = styled.div`
 
 export const ResultIcon = styled.span`
     font-size:  6rem;
+    height: 4rem;
     margin-top: 3rem;
+`
+
+export const ResultTextWrapper = styled.div`
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    
+    button {
+        margin-top: 1rem;
+        width: 100%;
+    }
 `

@@ -9,7 +9,7 @@ import {
   GoButton,
   Header,
   NavNextButton, NavPrevButton, ProgressBarContainer, ProgressBarFill, ProgressWrapper,
-  ReadyText, ResultIcon, ResultWrapper,
+  ReadyText, ResultIcon, ResultTextWrapper, ResultWrapper,
   RulesWrapper,
   ShowAnswer,
 } from './styled'
@@ -86,7 +86,7 @@ const BacheloretteQuiz = () => {
         emoji: Math.random() > 0.3 ? '❤️' : '🧅', // 70% сердечек, 30% Шрека
         size: Math.random() * 20 + 15,
         duration: Math.random() * 3 + 2,
-        delay: Math.random() * 50
+        delay: Math.random() * 5
       });
     }
 
@@ -155,16 +155,16 @@ const BacheloretteQuiz = () => {
             <p>Маша прошла все вопросы!</p>
           </S.Header>
 
-          <div>
+          <S.ResultTextWrapper>
             <S.ResultIcon>{accuracy >= 80 ? '🎉' : accuracy >= 60 ? '👍' : '😊'}</S.ResultIcon>
 
-            <h2 style={{marginTop: '10px',}}>
+            <h2 style={{marginTop: '10px'}}>
               {correctAnswers} из {totalAnswers}
             </h2>
 
             <div>
-              <h3>Правильных ответов: {accuracy}%</h3>
-              <div>
+              <h2 style={{marginBottom: '16px'}}>Правильных ответов: {accuracy}%</h2>
+              <div style={{marginBottom: '16px'}}>
                 {accuracy >= 80
                   ? 'Маша отлично знает своего Егора!'
                   : accuracy >= 60
@@ -189,7 +189,7 @@ const BacheloretteQuiz = () => {
                 Пройти снова
               </S.GoButton>
 
-          </div>
+          </S.ResultTextWrapper>
 
           <S.Footer>Подготовлено с любовью для самого важного девичника 💖</S.Footer>
         </S.Main>
@@ -250,14 +250,14 @@ const BacheloretteQuiz = () => {
                 <S.AnswerNotRightButton
                   onClick={() => {
                     recordAnswer(false)
-                    toggleAnswer()
+                    nextQuestion();
                   }}>
                   Не правильно
                 </S.AnswerNotRightButton>
                 <S.AnswerRightButton
                   onClick={() => {
                     recordAnswer(true)
-                    toggleAnswer()
+                    nextQuestion();
                   }}>
                   Правильно ✅
                 </S.AnswerRightButton>
